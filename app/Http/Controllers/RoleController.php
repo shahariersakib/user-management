@@ -71,7 +71,6 @@ class RoleController extends Controller
         $this->validate($request, [
             'name' => 'required',
             'permission' => 'required',
-
         ]);
 
         $role = Role::find($id);

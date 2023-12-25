@@ -1,0 +1,80 @@
+@import url(https://fonts.googleapis.com/css?family=Lato:300,400,700|Raleway:400,300,700);
+
+body {
+    font-family: 'Raleway', sans-serif;
+}
+
+.codrops-top {
+    background: #fff;
+    background: rgba(255, 255, 255, 0.6);
+    text-transform: uppercase;
+    width: 100%;
+    font-size: 0.69em;
+    line-height: 2.2;
+}
+
+.codrops-top a {
+    text-decoration: none;
+    padding: 0 1em;
+    letter-spacing: 0.1em;
+    color: #888;
+    display: inline-block;
+}
+
+.codrops-top a:hover {
+    background: rgba(255, 255, 255, 0.95);
+    color: #716d62;
+}
+
+.card {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.card-header {
+    background-color: #435a6b;
+    color: #fff;
+    font-weight: bold;
+    padding: 10px;
+}
+
+.card-body {
+    padding: 20px;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-row {
+    margin-bottom: 15px;
+}
+
+.col-md-4 {
+    width: 33.33333333%;
+}
+
+.col-md-6 {
+    width: 50%;
+}
+
+.form-check {
+    display: flex;
+    align-items: center;
+}
+
+.btn-primary {
+    background-color: #435a6b;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-link {
+    color: #435a6b;
+    text-decoration: none;
+    margin-left: 10px;
+}
