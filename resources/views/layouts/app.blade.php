@@ -25,7 +25,7 @@
             <nav class="cl-effect-14">
                 <a href="{{ route('user-list.index') }}">User List</a>
                 <a href="{{ route('user-list-two.index') }}">User List 2</a>
-                <a href="{{ route('roles.index') }}">Roles</a>
+                {{-- <a href="{{ route('roles.index') }}">Roles</a> --}}
                 <a href="{{ route('users.index') }}">System Users</a>
                 @guest
                     <a href="{{ route('login') }}">Login</a>

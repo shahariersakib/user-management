@@ -5,38 +5,17 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">{{ __('User Details') }}</div>
+                    <div class="card-header">
+                        User Details
+                        <a href="{{ route('users.index') }}" class="btn btn-primary btn-sm float-end">Back to List</a>
+                    </div>
 
                     <div class="card-body">
-                        <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
-
-                            <div class="col-md-6">
-                                <p>{{ $user->name }}</p>
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('Email') }}</label>
-
-                            <div class="col-md-6">
-                                <p>{{ $user->email }}</p>
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="roles" class="col-md-4 col-form-label text-md-right">{{ __('Roles') }}</label>
-
-                            <div class="col-md-6">
-                                <p>{{ implode(', ', $user->getRoleNames()->toArray()) }}</p>
-                            </div>
-                        </div>
-
-                        <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <a href="{{ route('users.index') }}" class="btn btn-secondary">{{ __('Back') }}</a>
-                            </div>
-                        </div>
+                        <ul class="list-group">
+                            <li class="list-group-item"><strong>Name:</strong> {{ $user->name }}</li>
+                            <li class="list-group-item"><strong>Email:</strong> {{ $user->email }}</li>
+                            <li class="list-group-item"><strong>Roles:</strong> {{ implode(', ', $user->getRoleNames()->toArray()) }}</li>
+                        </ul>
                     </div>
                 </div>
             </div>
