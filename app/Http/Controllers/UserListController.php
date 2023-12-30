@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\UserList;
+use App\Imports\UserListImport;
+use App\Exports\UserListExport;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 
 class UserListController extends Controller
 {
@@ -64,5 +67,21 @@ class UserListController extends Controller
 
         return redirect()->route('user-list.index')
         ->with('success', 'User List deleted successfully');
+    }
+
+    public function export()
+    {
+        return Excel::download(new UserListExport, 'user_list.xlsx');
+    }
+
+    public function import(Request $request)
+    {
+        $request->validate([
+            'file' => 'required|mimes:xlsx,xls',
+        ]);
+
+        Excel::import(new UserListImport, $request->file('file'));
+
+        return redirect()->route('user-list.index')->with('success', 'Users imported successfully');
     }
 }

@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\UserListTwo;
+use App\Exports\UserListTwoExport;
+use App\Imports\UserListTwoImport;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 
 class UserListTwoController extends Controller
 {
@@ -64,5 +67,21 @@ class UserListTwoController extends Controller
 
         return redirect()->route('user-list-two.index')
             ->with('success', 'UserListTwo deleted successfully');
+    }
+
+    public function export()
+    {
+        return Excel::download(new UserListTwoExport, 'user_list_two.xlsx');
+    }
+
+    public function import(Request $request)
+    {
+        $request->validate([
+            'file' => 'required|mimes:xlsx',
+        ]);
+
+        Excel::import(new UserListTwoImport, $request->file('file'));
+
+        return redirect()->route('user-list-two.index')->with('success', 'Users imported successfully');
     }
 }

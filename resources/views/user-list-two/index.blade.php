@@ -8,6 +8,13 @@
                 <div class="card-header">
                     User List
                     <a href="{{ route('user-list-two.create') }}" class="btn btn-primary btn-sm float-end">Add User</a>
+                    <a href="{{ route('user-list-two.export') }}" class="btn btn-success">Export Users</a>
+
+                    <form action="{{ route('user-list-two.import') }}" method="post" enctype="multipart/form-data">
+                        @csrf
+                        <input type="file" name="file" accept=".xlsx, .xls">
+                        <button type="submit" class="btn btn-primary">Import Users</button>
+                    </form>
                 </div>
 
                 <div class="card-body">
